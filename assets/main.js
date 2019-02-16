@@ -21,7 +21,7 @@ var question1 = {
 
   correctAnswer: "Anxiety",
 
-  link: "assets/images/darth-vader.jpg"
+  link: "assets/images/anxiety_kid.gif"
 };
 
 var question2 = {
@@ -37,7 +37,7 @@ var question2 = {
 
   correctAnswer: "Therapy",
 
-  link: "assets/images/darth-vader.jpg"
+  link: "assets/images/therapy.gif"
 };
 var question3 = {
   questionText: "Which factors contribute to mental wellbeing?",
@@ -52,7 +52,7 @@ var question3 = {
 
   correctAnswer: "All of the above",
 
-  link: "assets/images/darth-vader.jpg"
+  link: "assets/images/selfcare.gif"
 };
 
 var question4 = {
@@ -68,7 +68,7 @@ var question4 = {
 
   correctAnswer: "Gratitude",
 
-  link: "assets/images/darth-vader.jpg"
+  link: "assets/images/gratitude.gif"
 };
 var question5 = {
   questionText: "What can help alleviate symptoms of depression",
@@ -83,7 +83,7 @@ var question5 = {
 
   correctAnswer: "A + B",
 
-  link: "assets/images/darth-vader.jpg"
+  link: "assets/images/talktoafriend.gif"
 };
 
 var question6 = {
@@ -99,7 +99,7 @@ var question6 = {
 
   correctAnswer: "Tell someone you trust",
 
-  link: "assets/images/darth-vader.jpg"
+  link: "assets/images/tellsomeoneutrust.gif"
 };
 
 var questionArray = [
