@@ -9,41 +9,111 @@ var numberOfWrongAnswers = 0;
 var countdown;
 
 var question1 = {
-  questionText: "Who is the best?",
+  questionText: "What is the most common mental health challenge?",
 
-  Answer1: { text: "You", value: false },
+  Answer1: "Depression",
 
-  Answer2: { text: "Me", value: false },
+  Answer2: "Anxiety",
 
-  Answer3: { text: "I", value: false },
+  Answer3: "Schizophrenia",
 
-  Answer4: { text: "Correct", value: true },
+  Answer4: "Anorexia",
 
-  correctAnswer: "Correct",
+  correctAnswer: "Anxiety",
 
   link: "assets/images/darth-vader.jpg"
 };
 
 var question2 = {
-  questionText: "Who is the worst? Question two",
+  questionText: "What is the most effective treatment for anxiety?",
 
-  Answer1: { text: "Me", value: false },
+  Answer1: "Therapy",
 
-  Answer2: { text: "Correct", value: true },
+  Answer2: "Medication",
 
-  Answer3: { text: "I", value: false },
+  Answer3: "Exercise",
 
-  Answer4: { text: "Who?", value: false },
+  Answer4: "There is no effective treatment",
 
-  correctAnswer: "Correct",
+  correctAnswer: "Therapy",
+
+  link: "assets/images/darth-vader.jpg"
+};
+var question3 = {
+  questionText: "Which factors contribute to mental wellbeing?",
+
+  Answer1: "Sleep",
+
+  Answer2: "Exercise",
+
+  Answer3: "Social Relationships",
+
+  Answer4: "All of the above",
+
+  correctAnswer: "All of the above",
 
   link: "assets/images/darth-vader.jpg"
 };
 
-var questionArray = [question1, question2];
+var question4 = {
+  questionText: "Which attributes are positively associated with mental health",
+
+  Answer1: "Academic success",
+
+  Answer2: "Humor",
+
+  Answer3: "Gratitude",
+
+  Answer4: "Social acumen",
+
+  correctAnswer: "Gratitude",
+
+  link: "assets/images/darth-vader.jpg"
+};
+var question5 = {
+  questionText: "What can help alleviate symptoms of depression",
+
+  Answer1: "Talking to a friend",
+
+  Answer2: "Talking to a family member",
+
+  Answer3: "A + B",
+
+  Answer4: "None of the above",
+
+  correctAnswer: "A + B",
+
+  link: "assets/images/darth-vader.jpg"
+};
+
+var question6 = {
+  questionText: "What should you do if you have a mental health challenge?",
+
+  Answer1: "Not tell anyone",
+
+  Answer2: "Write an anonymous internet post",
+
+  Answer3: "Tell someone you trust",
+
+  Answer4: "Binge-watch Netflix",
+
+  correctAnswer: "Tell someone you trust",
+
+  link: "assets/images/darth-vader.jpg"
+};
+
+var questionArray = [
+  question1,
+  question2,
+  question3,
+  question4,
+  question5,
+  question6
+];
 
 $("#start").click(function() {
   $("#start").addClass("d-none");
+  $("#timeDisplay").removeClass("d-none");
   $(".answer").removeClass("d-none");
   $(".explanationText").addClass("d-none");
   setUpQuestion();
@@ -57,16 +127,16 @@ function setUpQuestion() {
   $(".questionText").text(questionArray[currentQuestionNumber].questionText);
 
   //getting answer one text and value
-  $(".answer1").text(questionArray[currentQuestionNumber].Answer1.text);
+  $(".answer1").text(questionArray[currentQuestionNumber].Answer1);
 
   //getting answer two text and value
-  $(".answer2").text(questionArray[currentQuestionNumber].Answer2.text);
+  $(".answer2").text(questionArray[currentQuestionNumber].Answer2);
 
   //getting question 3 info
-  $(".answer3").text(questionArray[currentQuestionNumber].Answer3.text);
+  $(".answer3").text(questionArray[currentQuestionNumber].Answer3);
 
   //getting answer four
-  $(".answer4").text(questionArray[currentQuestionNumber].Answer4.text);
+  $(".answer4").text(questionArray[currentQuestionNumber].Answer4);
 
   currentCorrectAnswer = questionArray[currentQuestionNumber].correctAnswer;
 
@@ -176,7 +246,9 @@ function nextQuestion() {
     $(".answer").removeClass("d-none");
     $(".answer1").text("Number of correct answers: " + numberOfRightAnswers);
     $(".answer2").text("Number of incorrect answers: " + numberOfWrongAnswers);
-    $(".answer3").text("Score: " + numberOfRightAnswers / 2);
+    $(".answer3").text(
+      "Score: " + (numberOfRightAnswers / questionArray.length) * 100 + "%"
+    );
     $(".answer4").text("Click the restart button below to play again");
     $(".explanationText").addClass("d-none");
     $(".holder").addClass("d-none");
@@ -206,6 +278,11 @@ function restart() {
   //bringing back the highlighted answers
 
   $(".answer").removeClass("noBackground");
+
+  //reset number of right and wrong answers:
+
+  numberOfRightAnswers = 0;
+  numberOfWrongAnswers = 0;
 }
 
 // function outOfTime() {}
