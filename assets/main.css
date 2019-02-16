@@ -1,0 +1,56 @@
+html,
+body {
+  height: 100%;
+}
+
+.container {
+  text-align: center;
+  align-content: center;
+  height: 100%;
+}
+
+.align-middle {
+  margin-top: 10%;
+}
+
+#wrapper {
+  margin-bottom: 20px;
+}
+
+.buttonwrapper {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+#bigWrapper {
+  padding-top: 5%;
+  padding-bottom: 5%;
+
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  height: 75%;
+  min-height: 500px;
+  background-color: burlywood;
+}
+
+.questionText {
+  margin-bottom: 20px;
+}
+
+#timeDisplay {
+  font-size: 30px;
+}
+
+.answer {
+  padding: 10px;
+  display: inline-block;
+}
+
+.answer:hover {
+  background-color: aqua;
+}
+.noBackground:hover {
+  background-color: transparent;
+}

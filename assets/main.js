@@ -45,6 +45,7 @@ var questionArray = [question1, question2];
 $("#start").click(function() {
   $("#start").addClass("d-none");
   $(".answer").removeClass("d-none");
+  $(".explanationText").addClass("d-none");
   setUpQuestion();
 });
 
@@ -74,6 +75,7 @@ function setUpQuestion() {
   // Code below works, but is annoying so will not count yet.
 
   timerCount = 30;
+  $("#timeDisplay").text(timerCount);
 
   countdown = setInterval(timerCountDown, 1000);
 }
@@ -116,6 +118,9 @@ function correctAnswer() {
   $(".explanationText").removeClass("d-none");
   $(".explanationText").text("The correct answer was: " + currentCorrectAnswer);
 
+  //getting rid of the spaces
+  $("br").addClass("d-none");
+
   //hiding the other answer texts
   $(".answer").addClass("d-none");
 
@@ -135,6 +140,7 @@ function wrongAnswer(text) {
   $(".questionText").text(text);
   $(".explanationText").removeClass("d-none");
   $(".explanationText").text("The correct answer was: " + currentCorrectAnswer);
+  $("br").addClass("d-none");
   $(".answer").addClass("d-none");
   $(".holder").removeClass("d-none");
   $(".image").attr("src", giphLink);
@@ -156,6 +162,16 @@ function nextQuestion() {
 
   if (currentQuestionNumber == questionArray.length) {
     $(".buttonWrapper").removeClass("d-none");
+    //bring back spaces between answers
+    $("br").removeClass("d-none");
+
+    //get rid of the hover over the answer function:
+    $(".answer").addClass("noBackground");
+
+    //get rid of the timer
+
+    $("#wrapper").addClass("d-none");
+
     $(".questionText").text("You've reached the end of the quiz");
     $(".answer").removeClass("d-none");
     $(".answer1").text("Number of correct answers: " + numberOfRightAnswers);
@@ -165,9 +181,10 @@ function nextQuestion() {
     $(".explanationText").addClass("d-none");
     $(".holder").addClass("d-none");
 
-    console.log("time to restart)");
+    // console.log("time to restart)");
   } else {
     $(".answer").removeClass("d-none");
+    $("br").removeClass("d-none");
     $(".explanationText").addClass("d-none");
     $(".holder").addClass("d-none");
     setUpQuestion();
@@ -184,7 +201,11 @@ function restart() {
   // $(".explanationText").addClass("d-none");
   $(".holder").addClass("d-none");
   setUpQuestion();
-  $("#restart").addClass("d-none");
+  $(".buttonWrapper").addClass("d-none");
+  $("#wrapper").removeClass("d-none");
+  //bringing back the highlighted answers
+
+  $(".answer").removeClass("noBackground");
 }
 
-function outOfTime() {}
+// function outOfTime() {}
