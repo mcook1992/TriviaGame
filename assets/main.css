@@ -41,6 +41,7 @@ h1 {
   margin-bottom: 20px;
   height: 75%;
   min-height: 500px;
+  min-width: 250px;
   background-color: burlywood;
   border: solid gray 2px;
 }
