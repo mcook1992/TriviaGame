@@ -6,6 +6,7 @@ var currentQuestionNumber = 0;
 var giphLink = "";
 var numberOfRightAnswers = 0;
 var numberOfWrongAnswers = 0;
+var numberOfUnansweredQuestions = 0;
 var countdown;
 
 var question1 = {
@@ -163,6 +164,7 @@ $(".answer").on("click", function() {
     correctAnswer();
   } else {
     wrongAnswer("Not quite");
+    numberOfWrongAnswers++;
   }
 });
 
@@ -175,6 +177,7 @@ function timerCountDown() {
     countdown = 0;
 
     wrongAnswer("Your ran out of time");
+    numberOfUnansweredQuestions++;
   }
 }
 
@@ -214,7 +217,7 @@ function wrongAnswer(text) {
   $(".answer").addClass("d-none");
   $(".holder").removeClass("d-none");
   $(".image").attr("src", giphLink);
-  numberOfWrongAnswers++;
+
   setTimeout(nextQuestion, 3000);
 }
 
@@ -247,9 +250,7 @@ function nextQuestion() {
     $(".answer1").text("Number of correct answers: " + numberOfRightAnswers);
     $(".answer2").text("Number of incorrect answers: " + numberOfWrongAnswers);
     $(".answer3").text(
-      "Score: " +
-        Math.round((numberOfRightAnswers / questionArray.length) * 100) +
-        "%"
+      "Number of unanswered questions: " + numberOfUnansweredQuestions
     );
     $(".answer4").text("Click the restart button below to play again");
     $(".explanationText").addClass("d-none");
@@ -285,6 +286,7 @@ function restart() {
 
   numberOfRightAnswers = 0;
   numberOfWrongAnswers = 0;
+  numberOfUnansweredQuestions = 0;
 }
 
 // function outOfTime() {}
