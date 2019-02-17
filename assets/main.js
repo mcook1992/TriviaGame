@@ -56,7 +56,7 @@ var question3 = {
 };
 
 var question4 = {
-  questionText: "Which attributes are positively associated with mental health",
+  questionText: "Which attribute is positively associated with mental health?",
 
   Answer1: "Academic success",
 
@@ -71,7 +71,7 @@ var question4 = {
   link: "assets/images/gratitude.gif"
 };
 var question5 = {
-  questionText: "What can help alleviate symptoms of depression",
+  questionText: "What can help alleviate symptoms of depression?",
 
   Answer1: "Talking to a friend",
 
@@ -247,7 +247,9 @@ function nextQuestion() {
     $(".answer1").text("Number of correct answers: " + numberOfRightAnswers);
     $(".answer2").text("Number of incorrect answers: " + numberOfWrongAnswers);
     $(".answer3").text(
-      "Score: " + (numberOfRightAnswers / questionArray.length) * 100 + "%"
+      "Score: " +
+        Math.round((numberOfRightAnswers / questionArray.length) * 100) +
+        "%"
     );
     $(".answer4").text("Click the restart button below to play again");
     $(".explanationText").addClass("d-none");
