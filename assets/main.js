@@ -142,8 +142,12 @@ function setUpQuestion() {
   currentCorrectAnswer = questionArray[currentQuestionNumber].correctAnswer;
 
   giphLink = questionArray[currentQuestionNumber].link;
+  
+  //loading the right link for the giph
+  
+  $(".image").attr("src", giphLink);
 
-  // Code below works, but is annoying so will not count yet.
+  //keeping track of time
 
   timerCount = 30;
   $("#timeDisplay").text(timerCount);
@@ -199,7 +203,7 @@ function correctAnswer() {
 
   //adding in the appropriate image/gif
   $(".holder").removeClass("d-none");
-  $(".image").attr("src", giphLink);
+  
 
   //increasing number of right answers
   numberOfRightAnswers++;
@@ -216,8 +220,7 @@ function wrongAnswer(text) {
   $("br").addClass("d-none");
   $(".answer").addClass("d-none");
   $(".holder").removeClass("d-none");
-  $(".image").attr("src", giphLink);
-
+  
   setTimeout(nextQuestion, 3000);
 }
 
